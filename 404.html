@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Página não encontrada</title>
+    <script>
+        // Tentar redirecionar para a página com .html imediatamente (sem delay)
+        (function() {
+            const currentPath = window.location.pathname;
+            if (!currentPath.endsWith('.html') && currentPath !== '/' && currentPath !== '/index.html') {
+                const newPath = currentPath + '.html';
+                window.location.replace(newPath);
+            }
+        })();
+    </script>
+</head>
+<body>
+    <h1>404 - Página não encontrada</h1>
+    <p>Redirecionando...</p>
+    <p><a href="/">Voltar para página inicial</a></p>
+</body>
+</html>
+

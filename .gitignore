@@ -1,0 +1,21 @@
+# Arquivos temporários
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Arquivos de sistema
+desktop.ini
+
+# Arquivos de backup
+*.bak
+*.backup
+
+# Arquivos de configuração local (se necessário)
+# config.local.js

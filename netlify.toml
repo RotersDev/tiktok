@@ -1,0 +1,21 @@
+# Configuração Netlify - Projeto Estático
+[build]
+  publish = "."
+  command = "echo 'Projeto estático - sem build necessário'"
+
+# Remover extensão .html das URLs
+[[redirects]]
+  from = "/pages/*.html"
+  to = "/pages/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*.html"
+  to = "/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+

@@ -1,0 +1,5 @@
+# Netlify redirects - Remove .html extension
+/index.html    /    200
+/pages/*.html  /pages/:splat  200
+/*.html        /:splat  200
+

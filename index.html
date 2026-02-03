@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Bônus</title>
+    <meta name="description" content="TikTok Bônus - Ganhe pontos e recompensas">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/icons/image.png">
+
+    <!-- TikTok Sans Font -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <style>
+      @font-face {
+        font-family: 'TikTok Sans';
+        font-style: normal;
+        font-display: swap;
+        font-weight: 300 900;
+        src: url('assets/fonts/tiktok-sans.woff2') format('woff2-variations');
+      }
+    </style>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/index-B1D6e1Fy.css">
+
+    <style>
+      /* Animações simples para replicar Framer Motion */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+        }
+
+      .animate-fade-in-up {
+        animation: fadeInUp 0.4s ease-out forwards;
+      }
+
+      .animate-fade-in-up-delay-1 {
+        animation: fadeInUp 0.4s ease-out 0.05s forwards;
+        opacity: 0;
+      }
+
+      .animate-fade-in-delay-2 {
+        animation: fadeIn 0.4s ease-out 0.1s forwards;
+        opacity: 0;
+      }
+
+      /* Modal Animations */
+      @keyframes modalFadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes modalSlideUp {
+        from {
+          transform: scale(0.9) translateY(20px);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1) translateY(0);
+          opacity: 1;
+        }
+      }
+
+      #prizeModal {
+        transition: opacity 0.3s ease;
+      }
+
+      #prizeModal:not(.hidden) {
+        animation: modalFadeIn 0.3s ease forwards;
+      }
+
+      #prizeModal:not(.hidden) > div:last-child {
+        animation: modalSlideUp 0.5s ease forwards;
+      }
+
+      /* Card de Saldo Fixo */
+      #stickyBalanceCard {
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+
+      /* SVG Check Icon */
+      .check-icon {
+        width: 20px;
+        height: 20px;
+        stroke: currentColor;
+        stroke-width: 2.5;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+    </style>
+</head>
+<body>
+    <!-- Página Inicial - Layout 100% Idêntico -->
+    <div class="min-h-screen bg-background">
+        <!-- Header -->
+        <header class="bg-background sticky top-0 z-10 py-3">
+            <h1 class="text-center text-foreground font-semibold text-lg">TikTok Bônus</h1>
+        </header>
+
+        <!-- Container Principal -->
+        <div class="max-w-md mx-auto px-4 pb-32 space-y-4">
+
+            <!-- Card de Saldo (UI) - Novo Estilo -->
+            <div class="bg-white rounded-2xl p-4 shadow-lg border border-gray-100 animate-fade-in-up">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <div class="flex items-center gap-1.5 mb-0.5">
+                            <span class="text-gray-500 text-sm">Seu saldo</span>
+                            <img src="assets/icons/p-assista-2-BUWulIvV.svg" alt="P" class="w-4 h-4">
+                        </div>
+                        <h2 class="text-2xl font-bold text-black balance-value">R$ &nbsp;0,00</h2>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <a href="pages/sacar.html" class="relative bg-[#E94560] hover:bg-[#d63d56] text-white font-semibold py-3 px-10 rounded-full transition-all hover:scale-105 active:scale-95 text-base inline-block text-center">
+                            <div class="absolute -top-3 right-0 bg-[#F0F0F0] rounded-md px-2 py-1">
+                                <img src="assets/icons/pix-logo-2-DwazX9RI.svg" alt="PIX" class="h-4 object-contain">
+                            </div>
+                            Sacar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card de Parabéns (WI) -->
+            <div class="bg-card rounded-2xl p-5 shadow-sm animate-fade-in-up-delay-1">
+                <div class="flex items-start justify-between">
+                    <div class="flex-1">
+                        <h2 class="text-xl font-bold text-foreground leading-tight">Parabéns!</h2>
+                        <p class="text-xl font-bold text-foreground leading-tight">Você concluiu</p>
+                        <p class="text-xl font-bold text-foreground leading-tight">todas as tarefas</p>
+                        <p class="text-xl font-bold text-primary leading-tight mt-1 parabens-value">R$ 0,00</p>
+                    </div>
+                    <img src="assets/icons/parabens-img-2-ona4Y7VS.png" alt="Parabéns" class="w-36 h-36 object-contain -mt-2 -mr-2">
+                </div>
+            </div>
+
+            <!-- Cards de Tarefas (ZI) -->
+            <div class="space-y-4 animate-fade-in-delay-2">
+
+                <!-- Card Principal de Tarefas -->
+                <div class="bg-card overflow-hidden rounded-2xl shadow-sm">
+
+                    <!-- Check-in Diário (HI) -->
+                    <div class="p-5">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex-1 pr-3">
+                                <p class="text-foreground font-bold text-[15px] leading-snug">Entre por 14 dias para ganhar</p>
+                                <p class="text-primary font-bold text-[15px]">8.414 pontos</p>
+                                <p class="text-primary text-[13px] mt-1">• 12 de nov - 25 de nov</p>
+                            </div>
+                            <div class="bg-muted text-muted-foreground px-4 py-2 rounded-full text-[13px] font-medium whitespace-nowrap flex-shrink-0">
+                                Concluído
+                            </div>
+                        </div>
+                        <div class="bg-muted rounded-xl p-3.5 mb-5">
+                            <p class="text-muted-foreground text-[13px]">Você concluiu todos os dias de check-in.</p>
+                        </div>
+                        <div class="flex justify-between gap-1.5">
+                            <!-- Dia 1 -->
+                            <div class="flex flex-col items-center flex-1">
+                                <div class="w-full aspect-square max-w-[44px] rounded-xl bg-primary/10 flex flex-col items-center justify-center relative overflow-hidden">
+                                    <div class="flex flex-col items-center opacity-30">
+                                        <img src="assets/icons/p-assista-2-BUWulIvV.svg" alt="coin" class="w-3 h-3">
+                                        <span class="text-primary text-[9px] font-bold">50</span>
+                                    </div>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <svg class="check-icon w-5 h-5 text-primary" viewBox="0 0 24 24">
+                                            <path d="M20 6 9 17l-5-5"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <span class="text-muted-foreground text-[10px] mt-1.5 font-medium">Dia 01</span>
+                            </div>
+                            <!-- Dia 2 -->
+                            <div class="flex flex-col items-center flex-1">
+                                <div class="w-full aspect-square max-w-[44px] rounded-xl bg-primary/10 flex flex-col items-center justify-center relative overflow-hidden">
+                                    <div class="flex flex-col items-center opacity-30">
+                                        <img src="assets/icons/p-assista-2-BUWulIvV.svg" alt="coin" class="w-3 h-3">
+                                        <span class="text-primary text-[9px] font-bold">100</span>
+                                    </div>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <svg class="check-icon w-5 h-5 text-primary" viewBox="0 0 24 24">
+                                            <path d="M20 6 9 17l-5-5"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <span class="text-muted-foreground text-[10px] mt-1.5 font-medium">Dia 02</span>
+                            </div>
+                            <!-- Dia 3 -->
+                            <div class="flex flex-col items-center flex-1">
+                                <div class="w-full aspect-square max-w-[44px] rounded-xl bg-primary/10 flex flex-col items-center justify-center relative overflow-hidden">
+                                    <div class="flex flex-col items-center opacity-30">
+                                        <img src="assets/icons/p-assista-2-BUWulIvV.svg" alt="coin" class="w-3 h-3">
+                                        <span class="text-primary text-[9px] font-bold">150</span>
+                                    </div>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <svg class="check-icon w-5 h-5 text-primary" viewBox="0 0 24 24">
+                                            <path d="M20 6 9 17l-5-5"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <span class="text-muted-foreground text-[10px] mt-1.5 font-medium">Dia 03</span>
+                            </div>
+                            <!-- Dia 4 -->
+                            <div class="flex flex-col items-center flex-1">
+                                <div class="w-full aspect-square max-w-[44px] rounded-xl bg-primary/10 flex flex-col items-center justify-center relative overflow-hidden">
+                                    <div class="flex flex-col items-center opacity-30">
+                                        <img src="assets/icons/p-assista-2-BUWulIvV.svg" alt="coin" class="w-3 h-3">
+                                        <span class="text-primary text-[9px] font-bold">200</span>
+                                    </div>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <svg class="check-icon w-5 h-5 text-primary" viewBox="0 0 24 24">
+                                            <path d="M20 6 9 17l-5-5"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <span class="text-muted-foreground text-[10px] mt-1.5 font-medium">Dia 04</span>
+                            </div>
+                            <!-- Dia 5 -->
+                            <div class="flex flex-col items-center flex-1">
+                                <div class="w-full aspect-square max-w-[44px] rounded-xl bg-primary/10 flex flex-col items-center justify-center relative overflow-hidden">
+                                    <div class="flex flex-col items-center opacity-30">
+                                        <img src="assets/icons/p-assista-2-BUWulIvV.svg" alt="coin" class="w-3 h-3">
+                                        <span class="text-primary text-[9px] font-bold">250</span>
+                                    </div>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <svg class="check-icon w-5 h-5 text-primary" viewBox="0 0 24 24">
+                                            <path d="M20 6 9 17l-5-5"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <span class="text-muted-foreground text-[10px] mt-1.5 font-medium">Dia 05</span>
+                            </div>
+                            <!-- Dia 6 -->
+                            <div class="flex flex-col items-center flex-1">
+                                <div class="w-full aspect-square max-w-[44px] rounded-xl bg-primary/10 flex flex-col items-center justify-center relative overflow-hidden">
+                                    <div class="flex flex-col items-center opacity-30">
+                                        <img src="assets/icons/p-assista-2-BUWulIvV.svg" alt="coin" class="w-3 h-3">
+                                        <span class="text-primary text-[9px] font-bold">300</span>
+                                    </div>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <svg class="check-icon w-5 h-5 text-primary" viewBox="0 0 24 24">
+                                            <path d="M20 6 9 17l-5-5"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <span class="text-muted-foreground text-[10px] mt-1.5 font-medium">Dia 06</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-dashed border-border mt-5"></div>
+                    </div>
+
+                    <!-- Ver Anúncios (qI) -->
+                    <div class="px-5 py-4">
+                        <div class="flex items-start justify-between">
+                            <div class="flex-1 pr-3">
+                                <p class="text-foreground font-bold text-[15px] leading-snug">
+                                    Vê anúncios direcionados diariamente para ganhares até
+                                    <span class="text-primary">2.730 pontos</span>
+                                </p>
+                                <p class="text-primary text-[13px] mt-1.5">• 30/30 anúncios assistidos</p>
+                            </div>
+                            <div class="bg-muted text-muted-foreground px-4 py-2 rounded-full text-[13px] font-medium whitespace-nowrap flex-shrink-0">
+                                Concluído
+                            </div>
+                        </div>
+                        <div class="border-t border-dashed border-border mt-5"></div>
+                    </div>
+
+                    <!-- Assistir Vídeos (QI) -->
+                    <div class="px-5 py-4">
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="flex-1 pr-3">
+                                <p class="text-foreground font-bold text-[15px] leading-snug">
+                                    Assistir vídeos
+                                    <span class="text-primary">500 pontos</span>
+                                </p>
+                            </div>
+                            <div class="bg-muted text-muted-foreground px-4 py-2 rounded-full text-[13px] font-medium whitespace-nowrap flex-shrink-0">
+                                Concluído
+                            </div>
+                        </div>
+                        <div class="inline-block bg-muted rounded-full px-4 py-2 mb-5">
+                            <span class="text-muted-foreground text-[13px] font-medium">Assista por 10 min</span>
+                        </div>
+                        <div class="relative mb-3">
+                            <div class="h-0.5 bg-border rounded-full absolute top-3.5 left-6 right-6"></div>
+                            <div class="flex justify-between relative z-10 px-1">
+                                <div class="flex flex-col items-center">
+                                    <img src="assets/icons/p-assista-2-BUWulIvV.svg" alt="P" class="w-7 h-7">
+                                    <span class="text-muted-foreground text-[10px] mt-1 font-medium">50 pontos</span>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <img src="assets/icons/p-assista-2-BUWulIvV.svg" alt="P" class="w-7 h-7">
+                                    <span class="text-muted-foreground text-[10px] mt-1 font-medium">100 pontos</span>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <img src="assets/icons/p-assista-2-BUWulIvV.svg" alt="P" class="w-7 h-7">
+                                    <span class="text-muted-foreground text-[10px] mt-1 font-medium">150 pontos</span>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <img src="assets/icons/p-assista-2-BUWulIvV.svg" alt="P" class="w-7 h-7">
+                                    <span class="text-muted-foreground text-[10px] mt-1 font-medium">225 pontos</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-t border-dashed border-border mt-5"></div>
+                    </div>
+
+                    <!-- Resgatar Recompensas (YI) -->
+                    <div class="px-5 py-4">
+                        <div class="flex items-start justify-between">
+                            <div class="flex-1 pr-3">
+                                <p class="text-foreground font-bold text-[15px] leading-snug">
+                                    Resgate suas recompensas e ganhe
+                                    <span class="text-primary">640 pontos</span>
+                                </p>
+                                <p class="text-primary text-[13px] mt-1">• 8/8 resgatados</p>
+                            </div>
+                            <div class="bg-muted text-muted-foreground px-4 py-2 rounded-full text-[13px] font-medium whitespace-nowrap flex-shrink-0">
+                                Concluído
+                            </div>
+                        </div>
+                        <div class="border-t border-dashed border-border mt-5"></div>
+                    </div>
+
+                    <!-- Pesquisas (XI) -->
+                    <div class="px-5 py-4">
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="flex-1 pr-3">
+                                <p class="text-foreground font-bold text-[15px] leading-snug">
+                                    Faça 60 pesquisas diárias para ganhar até
+                                    <span class="text-primary">996 pontos</span>
+                                </p>
+                                <p class="text-primary text-[13px] mt-1">• 60 pesquisas feitas hoje</p>
+                            </div>
+                            <div class="bg-muted text-muted-foreground px-4 py-2 rounded-full text-[13px] font-medium whitespace-nowrap flex-shrink-0">
+                                Concluído
+                            </div>
+                        </div>
+                        <div class="flex justify-end mb-3 mr-4">
+                            <div class="bg-muted rounded-lg px-3 py-1.5 relative">
+                                <span class="text-muted-foreground text-[12px] font-medium">Até 756 pontos</span>
+                                <div class="absolute -bottom-1 right-4 w-2 h-2 bg-muted rotate-45"></div>
+                            </div>
+                        </div>
+                        <div class="relative mb-5">
+                            <div class="h-0.5 bg-border rounded-full absolute top-3.5 left-20 right-20"></div>
+                            <div class="flex justify-between px-12 relative z-10">
+                                <div class="flex flex-col items-center">
+                                    <img src="assets/icons/p-assista-2-BUWulIvV.svg" alt="P" class="w-7 h-7">
+                                    <span class="text-muted-foreground text-[10px] mt-1 font-medium">36 pesquisas</span>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <img src="assets/icons/p-assista-2-BUWulIvV.svg" alt="P" class="w-7 h-7">
+                                    <span class="text-muted-foreground text-[10px] mt-1 font-medium">60 pesquisas</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-muted-foreground text-[12px] leading-relaxed">
+                            Obtém 21 pontos por escreveres uma consulta na barra de pesquisa, ou 0 ponto por tocares numa pesquisa sugerida, como em "Podes gostar".
+                        </p>
+                        <div class="border-t border-dashed border-border mt-5"></div>
+                    </div>
+
+                    <!-- Convidar Amigo (JI) -->
+                    <div class="px-5 py-5">
+                        <div class="flex items-start justify-between">
+                            <div class="flex-1 pr-3">
+                                <p class="text-foreground font-bold text-[15px] leading-snug">
+                                    Convide 1 amigo para se inscrever e ganhar
+                                </p>
+                                <p class="text-primary font-bold text-[15px]">100.000 pontos - 200.000 pontos</p>
+                            </div>
+                            <div class="bg-muted text-muted-foreground px-4 py-2 rounded-full text-[13px] font-medium whitespace-nowrap flex-shrink-0">
+                                Concluído
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Timer de Expiração (ES) -->
+                <div class="bg-card rounded-2xl p-4 shadow-sm">
+                    <div class="flex items-center justify-center gap-1.5">
+                        <span class="text-xs text-gray-500">Expira em</span>
+                        <div class="flex items-center gap-1">
+                            <div id="expiryHours1" class="bg-[#F0F0F0] text-gray-700 text-xs font-semibold w-[30px] h-[30px] rounded-md flex items-center justify-center">00</div>
+                            <span class="text-gray-400 font-medium text-sm">:</span>
+                            <div id="expiryMinutes1" class="bg-[#F0F0F0] text-gray-700 text-xs font-semibold w-[30px] h-[30px] rounded-md flex items-center justify-center">15</div>
+                            <span class="text-gray-400 font-medium text-sm">:</span>
+                            <div id="expirySeconds1" class="bg-[#F0F0F0] text-gray-700 text-xs font-semibold w-[30px] h-[30px] rounded-md flex items-center justify-center">00</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Card de Saldo Fixo (aparece ao rolar) -->
+    <div id="stickyBalanceCard" class="fixed bottom-0 left-0 right-0 z-50 hidden">
+        <div class="max-w-md mx-auto px-4 pb-4">
+            <div class="bg-white rounded-2xl p-4 shadow-lg border border-gray-100">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <div class="flex items-center gap-1.5 mb-0.5">
+                            <span class="text-gray-500 text-sm">Seu saldo</span>
+                            <img src="assets/icons/p-assista-2-BUWulIvV.svg" alt="P" class="w-4 h-4">
+                        </div>
+                        <h2 class="text-2xl font-bold text-black sticky-balance-value">R$ &nbsp;0,00</h2>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <a href="pages/sacar.html" class="relative bg-[#E94560] hover:bg-[#d63d56] text-white font-semibold py-3 px-10 rounded-full transition-all hover:scale-105 active:scale-95 text-base inline-block text-center">
+                            <div class="absolute -top-3 right-0 bg-[#F0F0F0] rounded-md px-2 py-1">
+                                <img src="assets/icons/pix-logo-2-DwazX9RI.svg" alt="PIX" class="h-4 object-contain">
+                            </div>
+                            Sacar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Gol de Prêmios -->
+    <div id="prizeModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden" style="opacity: 0;">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/50" onclick="closePrizeModal()"></div>
+
+        <!-- Modal Content -->
+        <div class="relative w-full max-w-[300px]" style="opacity: 1; transform: none;">
+            <!-- Imagem do Gol -->
+            <div class="flex justify-center relative z-10 -mb-8" style="transform: none;">
+                <img src="assets/icons/gol-2-CQxqmPpW.png" alt="Gol de Prêmios" class="w-24 h-24 object-contain">
+            </div>
+
+            <!-- Card do Modal -->
+            <div class="bg-gradient-to-b from-[#FFF9E6] to-white rounded-2xl pt-10 px-4 pb-4 shadow-xl">
+                <h2 class="text-lg font-bold text-center text-black mb-1" style="opacity: 1; transform: none;">Gol de Prêmios</h2>
+                <p class="text-center text-gray-500 text-sm leading-snug mb-3 px-2" style="opacity: 1;">Parabéns! Como parte de uma campanha de recompensas exclusiva.</p>
+
+                <!-- Valor -->
+                <div class="text-center mb-3" style="opacity: 1; transform: none;">
+                    <span class="text-3xl font-bold text-black modal-value">R$ &nbsp;0,00</span>
+                </div>
+
+                <!-- Timer -->
+                <div class="mb-3" style="opacity: 1;">
+                    <div class="flex items-center justify-center gap-1.5">
+                        <span class="text-xs text-gray-500">Expira em</span>
+                        <div class="flex items-center gap-1">
+                            <div id="expiryHours2" class="bg-[#F0F0F0] text-gray-700 text-xs font-semibold w-[30px] h-[30px] rounded-md flex items-center justify-center" style="transform: none;">00</div>
+                            <span class="text-gray-400 font-medium text-sm">:</span>
+                            <div id="expiryMinutes2" class="bg-[#F0F0F0] text-gray-700 text-xs font-semibold w-[30px] h-[30px] rounded-md flex items-center justify-center" style="transform: none;">15</div>
+                            <span class="text-gray-400 font-medium text-sm">:</span>
+                            <div id="expirySeconds2" class="bg-[#F0F0F0] text-gray-700 text-xs font-semibold w-[30px] h-[30px] rounded-md flex items-center justify-center" style="transform: none;">00</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Divisor -->
+                <div class="border-t border-dashed border-gray-300 my-3"></div>
+
+                <!-- Botão -->
+                <button class="w-full bg-[#E94560] hover:bg-[#d63d56] text-white font-bold py-3 rounded-full text-base transition-colors" onclick="closePrizeModal()" style="opacity: 1; transform: none;">Obrigado</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/url-rewrite.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
+
+
