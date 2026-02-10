@@ -1,13 +1,11 @@
 {
   "name": "tiktok-bonus",
   "version": "1.0.0",
-  "description": "Projeto estático - HTML/CSS/JavaScript",
-  "type": "module",
+  "description": "Projeto estático TikTok Bonus",
   "scripts": {
-    "build": "echo 'Projeto estático - sem build necessário'",
-    "start": "echo 'Projeto estático - abra index.html no navegador'"
+    "build": "echo 'Projeto estático - sem build necessário'"
   },
-  "keywords": ["static", "html", "javascript"],
+  "keywords": [],
   "author": "",
   "license": "ISC"
 }
