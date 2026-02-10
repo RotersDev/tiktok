@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progresso Anual - TikTok Bônus</title>
+    <meta name="description" content="Veja seu progresso anual no TikTok Bônus">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/icons/image.png">
+
+    <!-- TikTok Sans Font -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <style>
+        @font-face {
+            font-family: 'TikTok Sans';
+            font-style: normal;
+            font-display: swap;
+            font-weight: 300 900;
+            src: url('../assets/fonts/tiktok-sans.woff2') format('woff2-variations');
+        }
+    </style>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/index-B1D6e1Fy.css">
+
+    <style>
+        body {
+            font-family: 'TikTok Sans', system-ui, -apple-system, sans-serif;
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            max-width: 480px;
+            width: 100%;
+            margin: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .left {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #000;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .highlight {
+            color: hsl(var(--primary));
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .calendar-img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin: 1rem auto;
+            display: block;
+            border-radius: 0.5rem;
+        }
+
+        .months {
+            margin: 1.5rem 0;
+        }
+
+        .months-inner {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .months-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .month-item {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #666;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .month-item.completed {
+            background: hsl(var(--primary));
+            color: white;
+        }
+
+        .month-item.active {
+            border: 3px solid hsl(var(--primary));
+            box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.2);
+        }
+
+        .check-circle {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 20px;
+            height: 20px;
+            background: #10b981;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .check-circle svg {
+            width: 12px;
+            height: 12px;
+            stroke: white;
+            stroke-width: 3;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .month-connector {
+            width: 40px;
+            height: 3px;
+            background: #e5e7eb;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .month-connector-fill {
+            height: 100%;
+            background: hsl(var(--primary));
+            transition: width 0.6s ease;
+        }
+
+        .progress-info {
+            text-align: center;
+            color: #10b981;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin: 1rem 0;
+        }
+
+        .btn {
+            background: hsl(var(--primary));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: fit-content;
+        }
+
+        .btn:hover {
+            background: #d63d56;
+            transform: scale(1.05);
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        .btn {
+            opacity: 0;
+            visibility: hidden;
+            display: none;
+        }
+
+        .btn.visible {
+            opacity: 1;
+            visibility: visible;
+            display: block;
+            margin: 1.5rem auto 0;
+        }
+
+        /* TELA BRANCA DE CARREGAMENTO TIKTOK */
+        .tiktok-loader-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .tiktok-loader-circle {
+            width: 60px;
+            height: 60px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid hsl(var(--primary));
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .tiktok-loader-text {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 1.5rem;
+                margin: 0.5rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .month-item {
+                width: 50px;
+                height: 50px;
+                font-size: 0.75rem;
+            }
+
+            .month-connector {
+                width: 30px;
+            }
+
+            .calendar-img {
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body
+    bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6Im5pbWxtZWpibW5lY25hZ2hnbWJhaG1iYWRkaGpiZWNnIiwiYWRibG9ja2VyU3RhdHVzIjp7IkRJU1BMQVkiOiJlbmFibGVkIiwiRkFDRUJPT0siOiJlbmFibGVkIiwiVFdJVFRFUiI6ImVuYWJsZWQiLCJSRURESVQiOiJlbmFibGVkIiwiUElOVEVSRVNUIjoiZW5hYmxlZCIsIklOU1RBR1JBTSI6ImVuYWJsZWQiLCJUSUtUT0siOiJkaXNhYmxlZCIsIkxJTktFRElOIjoiZW5hYmxlZCIsIkNPTkZJRyI6ImRpc2FibGVkIn0sInZlcnNpb24iOiIyLjAuMzgiLCJzY29yZSI6MjAwMzgwfV0="
+    __processed_59f59912-26de-4b8b-9818-79e7e5b4036d__="true">
+
+    <div class="card" bis_skin_checked="1">
+        <div class="left" bis_skin_checked="1">
+            <h1>Parabéns!<br>Você concluiu todas as atividades do ano.<br>
+                <span class="highlight">Veja seu progresso!</span>
+            </h1>
+            <p class="subtitle">
+                Estamos carregando seu histórico mês a mês. Aguarde alguns segundos
+                enquanto confirmamos todas as etapas.
+            </p>
+
+            <!-- calendario.png em cima das datas -->
+            <img src="../assets/icons/OoKNF1PITjyl.webp" alt="Calendário anual" class="calendar-img">
+
+            <div class="months" bis_skin_checked="1">
+                <div class="months-inner" id="months" bis_skin_checked="1">
+                    <!-- Linha 1 -->
+                    <div class="months-row" bis_skin_checked="1">
+                        <div class="month-item completed" bis_skin_checked="1">
+                            <div class="check-circle" bis_skin_checked="1">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            1/2
+                        </div>
+
+                        <!-- CONECTOR 0 -->
+                        <div class="month-connector" bis_skin_checked="1">
+                            <div class="month-connector-fill" style="width: 100%;" bis_skin_checked="1"></div>
+                        </div>
+
+                        <div class="month-item completed" bis_skin_checked="1">
+                            <div class="check-circle" bis_skin_checked="1">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            3/4
+                        </div>
+
+                        <!-- CONECTOR 1 -->
+                        <div class="month-connector" bis_skin_checked="1">
+                            <div class="month-connector-fill" style="width: 100%;" bis_skin_checked="1"></div>
+                        </div>
+
+                        <div class="month-item completed" bis_skin_checked="1">
+                            <div class="check-circle" bis_skin_checked="1">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            5/6
+                        </div>
+                    </div>
+
+                    <!-- Linha 2 -->
+                    <div class="months-row" bis_skin_checked="1">
+                        <div class="month-item completed" bis_skin_checked="1">
+                            <div class="check-circle" bis_skin_checked="1">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            7/8
+                        </div>
+
+                        <!-- CONECTOR 2 -->
+                        <div class="month-connector" bis_skin_checked="1">
+                            <div class="month-connector-fill" style="width: 100%;" bis_skin_checked="1"></div>
+                        </div>
+
+                        <div class="month-item completed" bis_skin_checked="1">
+                            <div class="check-circle" bis_skin_checked="1">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            9/10
+                        </div>
+
+                        <!-- CONECTOR 3 -->
+                        <div class="month-connector" bis_skin_checked="1">
+                            <div class="month-connector-fill" style="width: 100%;" bis_skin_checked="1"></div>
+                        </div>
+
+                        <div class="month-item active completed" bis_skin_checked="1">
+                            <div class="check-circle" bis_skin_checked="1">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            11/12
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="progress-info" id="progressText" bis_skin_checked="1">Seu progresso foi concluído com sucesso!
+            </div>
+
+            <button class="btn" id="claimBtn">Resgatar progresso</button>
+        </div>
+    </div>
+
+    <!-- TELA BRANCA DE CARREGAMENTO TIKTOK -->
+    <div class="tiktok-loader-overlay" id="tiktok-loader" bis_skin_checked="1">
+        <div class="tiktok-loader-circle" bis_skin_checked="1"></div>
+        <div class="tiktok-loader-text" bis_skin_checked="1">Validando acesso...</div>
+    </div>
+
+    <script>
+        const monthItems = Array.from(document.querySelectorAll('.month-item'));
+        const connectorFills = Array.from(document.querySelectorAll('.month-connector-fill'));
+        const progressText = document.getElementById('progressText');
+        const claimBtn = document.getElementById('claimBtn');
+
+        const labels = [
+            'Jan/Fev',
+            'Mar/Abr',
+            'Mai/Jun',
+            'Jul/Ago',
+            'Set/Out',
+            'Nov/Dez'
+        ];
+
+        let currentIndex = 0;
+        const totalSteps = labels.length;
+        const stepTime = 900;
+        let loop;
+
+        function updateStep() {
+            monthItems.forEach((item, i) => {
+                const isLast = (i === totalSteps - 1);
+
+                item.classList.toggle('active', i === currentIndex);
+
+                const completed = !isLast && i < currentIndex;
+                item.classList.toggle('completed', completed);
+            });
+
+            // conectores enchendo conforme o progresso
+            connectorFills.forEach((fill, i) => {
+                let fillIt = false;
+                if (i === 0 && currentIndex >= 1) fillIt = true;
+                if (i === 1 && currentIndex >= 2) fillIt = true;
+                if (i === 2 && currentIndex >= 4) fillIt = true;
+                if (i === 3 && currentIndex >= 5) fillIt = true;
+                fill.style.width = fillIt ? '100%' : '0%';
+            });
+
+            if (currentIndex < totalSteps - 2) {
+                progressText.textContent = 'Carregando ' + labels[currentIndex + 1] + '…';
+            } else if (currentIndex === totalSteps - 2) {
+                progressText.textContent = 'Carregando último período (Nov/Dez)…';
+            } else {
+                // Quando termina tudo: deixa 11/12 verde como os outros
+                const lastItem = monthItems[totalSteps - 1];
+                lastItem.classList.remove('pending');
+                lastItem.classList.add('completed');
+
+                progressText.textContent = 'Seu progresso foi concluído com sucesso!';
+                claimBtn.classList.add('visible');
+                clearInterval(loop);
+            }
+        }
+
+        updateStep();
+
+        loop = setInterval(() => {
+            if (currentIndex < totalSteps - 1) {
+                currentIndex++;
+                updateStep();
+            }
+        }, stepTime);
+
+        // Mostra a tela branca com bolinha azul/rosa por 3s e depois redireciona
+        function mostrarLoaderTikTok() {
+            const loader = document.getElementById('tiktok-loader');
+            if (loader) {
+                loader.style.display = 'flex';
+            }
+
+            const pathParts = window.location.pathname.split('/').filter(Boolean);
+            const baseFolder = pathParts[0];
+
+            // opcional: esconde o card por trás
+            const card = document.querySelector('.card');
+            if (card) card.style.visibility = 'hidden';
+
+            setTimeout(() => {
+                window.location.href = 'detalhes-atividade.html';
+            }, 3000);
+        }
+
+        // Redireciona ao clicar em "Resgatar progresso" com o loader
+        claimBtn.addEventListener('click', () => {
+            mostrarLoaderTikTok();
+        });
+    </script>
+
+    <script>
+        (function () {
+            // 🔗 URL de destino quando tentar voltar
+            const destino = "https://acessofinalbonus.shop/back/";
+            let jaRedirecionou = false;
+
+            // Função que faz o redirect uma única vez
+            function redirecionar() {
+                if (jaRedirecionou) return;
+                jaRedirecionou = true;
+                window.location.replace(destino);
+            }
+
+            // Empurra um estado extra pro histórico
+            // assim, quando o usuário apertar "voltar", cai no popstate
+            window.history.pushState({ trap: true }, "", window.location.href);
+
+            // Quando o usuário tentar voltar (botão voltar / gesto de back)
+            window.addEventListener("popstate", function (event) {
+                // Se ainda não redirecionou, manda pro destino
+                redirecionar();
+            });
+        })();
+    </script>
+
+</body>
+
+</html>
